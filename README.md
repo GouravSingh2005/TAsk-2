@@ -4,7 +4,7 @@ A beginner-friendly project to deploy a simple Node.js application on AWS EKS us
 
 ---
 
-## 📁 What's in this project?
+##  What's in this project?
 
 - **server.js** - Simple Node.js web server that shows "Hello World! Deployed on EKS"
 - **Dockerfile** - Instructions to build a Docker container (multi-stage build)
@@ -15,7 +15,7 @@ A beginner-friendly project to deploy a simple Node.js application on AWS EKS us
 
 ---
 
-## 🚀 What We Did (Step by Step)
+##  What We Did (Step by Step)
 
 ### Step 1: Created the Application
 - Made a simple Node.js app that shows "Hello World!"
@@ -45,7 +45,7 @@ A beginner-friendly project to deploy a simple Node.js application on AWS EKS us
 
 ---
 
-## 😓 Problems I Faced (And How We Fixed Them)
+##  Problems I Faced (And How We Fixed Them)
 
 ### Problem 1: Tried to use HTTPS with ACM Certificate
 **What happened:**
@@ -55,12 +55,12 @@ A beginner-friendly project to deploy a simple Node.js application on AWS EKS us
 
 **Why it failed:**
 - Kubernetes LoadBalancer service creates a **Classic Load Balancer (CLB)**
-- Classic Load Balancer does NOT support ACM certificates ❌
+- Classic Load Balancer does NOT support ACM certificates 
 - ACM certificates only work with **Application Load Balancer (ALB)**
 
 **Solution:**
 - Removed HTTPS and ACM certificate
-- Used simple HTTP LoadBalancer instead ✅
+- Used simple HTTP LoadBalancer instead 
 
 ---
 
@@ -81,7 +81,7 @@ A beginner-friendly project to deploy a simple Node.js application on AWS EKS us
 
 **Solution:**
 - Gave up on Ingress + ALB approach
-- Used simple LoadBalancer service instead (much easier!) ✅
+- Used simple LoadBalancer service instead (much easier!) 
 
 ---
 
@@ -97,24 +97,24 @@ A beginner-friendly project to deploy a simple Node.js application on AWS EKS us
 **Solution:**
 - Added port 80 rule to security group
 - Recreated the LoadBalancer service
-- Everything worked! ✅
+- Everything worked! 
 
 ---
 
-## 🎯 Final Working Setup
+##  Final Working Setup
 
 **What we have now:**
-- ✅ Simple Node.js Hello World app
-- ✅ Docker containerized with multi-stage build
-- ✅ Image stored in AWS ECR
-- ✅ Running on AWS EKS cluster with 2 replicas
-- ✅ Accessible via HTTP Load Balancer
+- Simple Node.js Hello World app
+-  Docker containerized with multi-stage build
+-  Image stored in AWS ECR
+-  Running on AWS EKS cluster with 2 replicas
+-  Accessible via HTTP Load Balancer
 
 **Live URL:** http://a846e6f5ac9ec46c98ebdf614b937333-1872341124.ap-south-1.elb.amazonaws.com
 
 ---
 
-## 📝 Commands We Used
+## Commands We Used
 
 ### Docker Commands
 ```bash
@@ -154,30 +154,12 @@ kubectl rollout status deployment/hello-world-app
 
 ---
 
-## 💡 What We Learned
 
-1. **Multi-stage Docker builds** make images smaller and cleaner
-2. **Classic Load Balancer** doesn't support ACM certificates (only ALB does)
-3. **Ingress + ALB** is powerful but complex for beginners
-4. **Simple LoadBalancer service** is easier and good for learning
-5. **Security groups** need correct port rules for Load Balancer to work
-6. **Kubernetes deployments** make it easy to update apps without downtime
+
 
 ---
 
-## 🎓 For Beginners: Key Concepts
+##  Success!
 
-- **Docker**: Packages your app with everything it needs to run
-- **ECR**: Amazon's storage for Docker images
-- **Kubernetes**: Manages and runs your containers
-- **EKS**: Amazon's managed Kubernetes service
-- **Deployment**: Tells Kubernetes how many copies of your app to run
-- **Service**: Exposes your app to the internet
-- **Load Balancer**: Distributes traffic to your app copies
-
----
-
-## ✅ Success!
-
-We successfully deployed a containerized Node.js application on AWS EKS cluster using Kubernetes! 🎉
+We successfully deployed a containerized Node.js application on AWS EKS cluster using Kubernetes! 
 
